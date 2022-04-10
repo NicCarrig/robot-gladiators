@@ -22,8 +22,9 @@ var fightOrSkip = function(){
 // fight function (now with parameter for enemy's object holding name, health, and attack values)
 var fight = function(enemy) {
   var promptFight;
+  
   while (playerInfo.health > 0 && enemy.health > 0) {
-  var isPlayerTurn = true;
+    var isPlayerTurn = true;
 
   if (Math.random() > 0.5){
     isPlayerTurn = false;
@@ -179,7 +180,10 @@ var endGame = function() {
   // if player is still alive, player wins!
   if (playerInfo.health > 0) {
     window.alert("Great job, you've survived the game! You now have a score of " + playerInfo.money + '.');
-  } else {
+    var playerScore = playerInfo.money.toString();
+    localStorage.setItem(playerInfo.name, playerScore);
+  } 
+  else {
     window.alert("You've lost your robot in battle!");
   }
 
